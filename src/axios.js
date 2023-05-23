@@ -41,7 +41,8 @@ const requestBody = {
 axios.post("https://ia1-final-project-workspac-rntzt.eastus.inference.ml.azure.com/score", requestBody, {
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer kfy2rv4dlQom9nmrsoaCl31R3w6DB7GH'
+        'Authorization': 'Bearer kfy2rv4dlQom9nmrsoaCl31R3w6DB7GH',
+        "azureml-model-deployment": "final-knn-model-1"
     }
 }).then((response) => {
         console.log("Success!");
