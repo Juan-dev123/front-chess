@@ -38,9 +38,10 @@ const requestBody = {
     ]
 };
 
-axios.post("http://0635492a-7afc-4c68-a320-76e70b888c3a.eastus.azurecontainer.io/score", requestBody, {
+axios.post("https://ia1-final-project-workspac-rntzt.eastus.inference.ml.azure.com/score", requestBody, {
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `token ${process.env.KEY}`
     }
 }).then((response) => {
         console.log("Success!");
