@@ -41,7 +41,7 @@ const requestBody = {
 axios.post("https://ia1-final-project-workspac-rntzt.eastus.inference.ml.azure.com/score", requestBody, {
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': `token ${process.env.KEY}`
+        'Authorization': 'Bearer kfy2rv4dlQom9nmrsoaCl31R3w6DB7GH'
     }
 }).then((response) => {
         console.log("Success!");
