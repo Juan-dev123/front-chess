@@ -40,7 +40,7 @@ const requestBody = {
   ]
 };
 
-axios.post("https://chess-back.azurewebsites.net//knn/predict", requestBody, {
+axios.post("https://chess-back.azurewebsites.net/knn/predict", requestBody, {
     headers: {
         'Content-Type': 'application/json'
     }
