@@ -14,9 +14,14 @@
         <input type="file" id="csvFile" accept=".csv">
         <label for="csvFile" id="file-label">Seleccionar archivo CSV</label>
     </div>
-    <button id="process-button" onclick="processCSV()">Procesar archivo</button>
-    <div id="result"></div>
+    <div class="button-div">
+        <button id="process-button" onclick="processCSV()">Procesar archivo</button>
+    </div>
+    <div id="loader-container">
+        <div class="loader hidden" id="loader"></div>
+    </div>
 </div>
+
 <script>
     async function processCSV() {
         alert('Archivo importado.')
@@ -25,9 +30,12 @@
 
         if (file) {
             const csvFilePath = file;
+            const loaderContainer = document.getElementById('loader');
+            loaderContainer.classList.remove('hidden');
             const jsonData = await convertCSVtoJSON(csvFilePath);
             response = await post(jsonData)
             exportToCSV(response.data['games ids'], response.data['winners'])
+            loaderContainer.classList.add('hidden');
             alert('Respuesta exportada.')
         } else {
             alert('Por favor, selecciona un archivo CSV.');
