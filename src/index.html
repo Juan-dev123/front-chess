@@ -25,7 +25,9 @@
         if (file) {
             const csvFilePath = file;
             const jsonData = await convertCSVtoJSON(csvFilePath);
-            post(jsonData)
+            response = await post(jsonData)
+            exportToCSV(response.data['games ids'], response.data['winners'])
+            alert('Respuesta exportada.')
         } else {
             alert('Por favor, selecciona un archivo CSV.');
         }

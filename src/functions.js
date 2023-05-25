@@ -58,3 +58,22 @@ async function convertCSVtoJSON(csvFile) {
     throw error;
   }
 }
+
+function exportToCSV(ids, numbers) {
+  let csvContent = "ID_game,Winner\n";
+
+  for (let i = 0; i < ids.length; i++) {
+    const id = ids[i];
+    const number = numbers[i];
+
+    const row = `${id},${number}\n`;
+    csvContent += row;
+  }
+
+  const csvData = new Blob([csvContent], { type: "text/csv" });
+  const csvURL = window.URL.createObjectURL(csvData);
+  const tempLink = document.createElement("a");
+  tempLink.href = csvURL;
+  tempLink.setAttribute("download", "ResponseData.csv");
+  tempLink.click();
+}

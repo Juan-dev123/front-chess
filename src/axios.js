@@ -3,18 +3,15 @@ function post(data){
     const requestBody = {
         "data": data
     };
-    console.log(requestBody)
 
-  axios.post("http://127.0.0.1:8000/knn/predict", requestBody, {
-      headers: {
-          'Content-Type': 'application/json'
-      }
-  }).then((response) => {
-          console.log("Success!");
-          console.log(response);
-      })
-      .catch((error) => {
-          console.log("Error!");
-          console.log(error);
-      });
+    response = axios.post("https://chess-back.azurewebsites.net/knn/predict", requestBody, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).catch((error) => {
+        console.log("Error!");
+        console.log(error);
+    });
+
+    return response
 }
